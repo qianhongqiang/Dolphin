@@ -15,7 +15,9 @@
 		4DDD78AF1AEDC64C00E1B2B3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDD78AD1AEDC64C00E1B2B3 /* LaunchScreen.xib */; };
 		4DDD78BB1AEDC64C00E1B2B3 /* HQAnimationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD78BA1AEDC64C00E1B2B3 /* HQAnimationsTests.m */; };
 		4DDD78C71AEDCA3100E1B2B3 /* HQAnimationShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD78C61AEDCA3100E1B2B3 /* HQAnimationShowViewController.m */; };
-		4DDD78CD1AEDCF6000E1B2B3 /* HQSpringFlipperAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD78CC1AEDCF6000E1B2B3 /* HQSpringFlipperAnimation.m */; };
+		4DDD78D41AEE17FF00E1B2B3 /* HQSpringFlipperAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD78D31AEE17FF00E1B2B3 /* HQSpringFlipperAnimation.m */; };
+		4DDD78D91AEE184500E1B2B3 /* HQEllipticMotionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD78D81AEE184500E1B2B3 /* HQEllipticMotionAnimation.m */; };
+		4DDD78DC1AEE1BA700E1B2B3 /* HQEllipticAnimationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD78DB1AEE1BA700E1B2B3 /* HQEllipticAnimationButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +46,12 @@
 		4DDD78BA1AEDC64C00E1B2B3 /* HQAnimationsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HQAnimationsTests.m; sourceTree = "<group>"; };
 		4DDD78C51AEDCA3100E1B2B3 /* HQAnimationShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQAnimationShowViewController.h; sourceTree = "<group>"; };
 		4DDD78C61AEDCA3100E1B2B3 /* HQAnimationShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQAnimationShowViewController.m; sourceTree = "<group>"; };
-		4DDD78CB1AEDCF6000E1B2B3 /* HQSpringFlipperAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQSpringFlipperAnimation.h; sourceTree = "<group>"; };
-		4DDD78CC1AEDCF6000E1B2B3 /* HQSpringFlipperAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQSpringFlipperAnimation.m; sourceTree = "<group>"; };
+		4DDD78D21AEE17FF00E1B2B3 /* HQSpringFlipperAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQSpringFlipperAnimation.h; sourceTree = "<group>"; };
+		4DDD78D31AEE17FF00E1B2B3 /* HQSpringFlipperAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQSpringFlipperAnimation.m; sourceTree = "<group>"; };
+		4DDD78D71AEE184500E1B2B3 /* HQEllipticMotionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQEllipticMotionAnimation.h; sourceTree = "<group>"; };
+		4DDD78D81AEE184500E1B2B3 /* HQEllipticMotionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQEllipticMotionAnimation.m; sourceTree = "<group>"; };
+		4DDD78DA1AEE1BA700E1B2B3 /* HQEllipticAnimationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQEllipticAnimationButton.h; sourceTree = "<group>"; };
+		4DDD78DB1AEE1BA700E1B2B3 /* HQEllipticAnimationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQEllipticAnimationButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,10 +137,30 @@
 		4DDD78C41AEDC67200E1B2B3 /* HQAnimationsLib */ = {
 			isa = PBXGroup;
 			children = (
-				4DDD78CB1AEDCF6000E1B2B3 /* HQSpringFlipperAnimation.h */,
-				4DDD78CC1AEDCF6000E1B2B3 /* HQSpringFlipperAnimation.m */,
+				4DDD78D61AEE184500E1B2B3 /* movingBubble */,
+				4DDD78D11AEE17E500E1B2B3 /* springFlipper */,
 			);
 			path = HQAnimationsLib;
+			sourceTree = "<group>";
+		};
+		4DDD78D11AEE17E500E1B2B3 /* springFlipper */ = {
+			isa = PBXGroup;
+			children = (
+				4DDD78D21AEE17FF00E1B2B3 /* HQSpringFlipperAnimation.h */,
+				4DDD78D31AEE17FF00E1B2B3 /* HQSpringFlipperAnimation.m */,
+			);
+			path = springFlipper;
+			sourceTree = "<group>";
+		};
+		4DDD78D61AEE184500E1B2B3 /* movingBubble */ = {
+			isa = PBXGroup;
+			children = (
+				4DDD78D71AEE184500E1B2B3 /* HQEllipticMotionAnimation.h */,
+				4DDD78D81AEE184500E1B2B3 /* HQEllipticMotionAnimation.m */,
+				4DDD78DA1AEE1BA700E1B2B3 /* HQEllipticAnimationButton.h */,
+				4DDD78DB1AEE1BA700E1B2B3 /* HQEllipticAnimationButton.m */,
+			);
+			path = movingBubble;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,11 +263,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DDD78DC1AEE1BA700E1B2B3 /* HQEllipticAnimationButton.m in Sources */,
 				4DDD78A71AEDC64C00E1B2B3 /* ViewController.m in Sources */,
+				4DDD78D91AEE184500E1B2B3 /* HQEllipticMotionAnimation.m in Sources */,
 				4DDD78A41AEDC64C00E1B2B3 /* AppDelegate.m in Sources */,
 				4DDD78A11AEDC64C00E1B2B3 /* main.m in Sources */,
-				4DDD78CD1AEDCF6000E1B2B3 /* HQSpringFlipperAnimation.m in Sources */,
 				4DDD78C71AEDCA3100E1B2B3 /* HQAnimationShowViewController.m in Sources */,
+				4DDD78D41AEE17FF00E1B2B3 /* HQSpringFlipperAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

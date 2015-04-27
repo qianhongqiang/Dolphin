@@ -34,7 +34,7 @@ static const double kVelocityMutiplier = 10;
 
 @implementation HQSpringFlipperAnimation
 
-+ (instancetype)springFlipper
++(instancetype)springFlipper
 {
     return [self.class animationWithClangKeyPath:springFlipperParams.keyPath
                                         duration:springFlipperParams.duration
@@ -44,7 +44,7 @@ static const double kVelocityMutiplier = 10;
                                          toValue:springFlipperParams.toValue];
 }
 
-+ (instancetype)animationWithKeyPath:(NSString *)keyPath
++(instancetype)animationWithKeyPath:(NSString *)keyPath
                             duration:(CFTimeInterval)duration
                              damping:(double)damping
                             velocity:(double)velocity
@@ -62,7 +62,7 @@ static const double kVelocityMutiplier = 10;
                                           andVelocity:velocity];
     return animation;
 }
-+ (instancetype)animationWithClangKeyPath:(char *)keyPath
++(instancetype)animationWithClangKeyPath:(char *)keyPath
                                  duration:(CFTimeInterval)duration
                                   damping:(double)damping
                                  velocity:(double)velocity
@@ -74,7 +74,7 @@ static const double kVelocityMutiplier = 10;
 
 #pragma mark - 计算关键帧值相关
 //用于生成动画关键帧的数组
-+ (NSArray *)animationValuesFromValue:(double)fromValue
++(NSArray *)animationValuesFromValue:(double)fromValue
                               toValue:(double)toValue
                           withDamping:(double)damping
                           andVelocity:(double)velocity

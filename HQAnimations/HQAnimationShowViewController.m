@@ -8,6 +8,7 @@
 
 #import "HQAnimationShowViewController.h"
 #import "HQSpringFlipperAnimation.h"
+#import "HQEllipticAnimationButton.h"
 
 @interface HQAnimationShowViewController()
 
@@ -33,6 +34,12 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
+    UIButton *closeVC = [[UIButton alloc] initWithFrame:CGRectMake(20, 50, 50, 30)];
+    [closeVC setTitle:@"关闭" forState:UIControlStateNormal];
+    [closeVC setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [closeVC addTarget:self action:@selector(closeVC) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:closeVC];
+    
     switch (_animationType) {
         case HQAnimationSpringFlipper:
         {
@@ -55,21 +62,14 @@
             break;
         case HQAnimationRoundedRect:
         {
-            UIButton *flipperBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-            [flipperBtn setImage:[UIImage imageNamed:@"testImage"] forState:UIControlStateNormal];
-            [flipperBtn addTarget:self action:@selector(roundedRect:) forControlEvents:UIControlEventTouchUpInside];
-            [self.view addSubview:flipperBtn];
+            HQEllipticAnimationButton *ellipticBtn = [[HQEllipticAnimationButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+            [self.view addSubview:ellipticBtn];
             
             UILabel *tip = [[UILabel alloc] initWithFrame:CGRectMake(100, 220, 100, 100)];
             [self.view addSubview:tip];
-            tip.text = @"点击泡泡";
+            tip.text = @"仔细看泡泡";
             tip.textAlignment = NSTextAlignmentCenter;
             tip.textColor = [UIColor purpleColor];
-            
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(250, 100, 100, 100)];
-            [self.view addSubview:label];
-            label.text = @"duang~~";
-            label.textColor = [UIColor purpleColor];
         }
             break;
             
@@ -85,9 +85,9 @@
     [sender.layer addAnimation:springFlipper forKey:nil];
 }
 
--(void)roundedRect:(UIButton *)sender
+-(void)closeVC
 {
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
