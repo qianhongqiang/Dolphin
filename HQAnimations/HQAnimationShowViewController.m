@@ -60,7 +60,7 @@
             label.textColor = [UIColor purpleColor];
         }
             break;
-        case HQAnimationRoundedRect:
+        case HQAnimationMovingBubble:
         {
             HQEllipticAnimationButton *ellipticBtn = [[HQEllipticAnimationButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
             [self.view addSubview:ellipticBtn];
