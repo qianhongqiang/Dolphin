@@ -11,6 +11,7 @@
 typedef NS_ENUM(NSInteger, HQAnimationType) {
     HQAnimationSpringFlipper = 0,//带有弹簧性质的翻转
     HQAnimationMovingBubble,
+    HQAnimationPop,
 };
 
 

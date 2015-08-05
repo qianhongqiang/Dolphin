@@ -63,6 +63,7 @@ static const double kVelocityMutiplier = 10;
                                           andVelocity:velocity];
     return animation;
 }
+
 +(instancetype)animationWithClangKeyPath:(char *)keyPath
                                  duration:(CFTimeInterval)duration
                                   damping:(double)damping
@@ -74,7 +75,6 @@ static const double kVelocityMutiplier = 10;
 }
 
 #pragma mark - 计算关键帧值相关
-//用于生成动画关键帧的数组
 +(NSArray *)animationValuesFromValue:(double)fromValue
                               toValue:(double)toValue
                           withDamping:(double)damping

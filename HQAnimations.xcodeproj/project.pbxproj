@@ -19,6 +19,7 @@
 		4DDD78D91AEE184500E1B2B3 /* HQEllipticMotionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD78D81AEE184500E1B2B3 /* HQEllipticMotionAnimation.m */; };
 		4DDD78DC1AEE1BA700E1B2B3 /* HQEllipticAnimationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD78DB1AEE1BA700E1B2B3 /* HQEllipticAnimationButton.m */; };
 		7F3633AA1B71A4C300CFF87B /* HQTimingFunctionMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3633A91B71A4C300CFF87B /* HQTimingFunctionMath.m */; };
+		7F3633AE1B71AA9700CFF87B /* HQPopAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3633AD1B71AA9700CFF87B /* HQPopAnimation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		4DDD78DB1AEE1BA700E1B2B3 /* HQEllipticAnimationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQEllipticAnimationButton.m; sourceTree = "<group>"; };
 		7F3633A81B71A4C300CFF87B /* HQTimingFunctionMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQTimingFunctionMath.h; sourceTree = "<group>"; };
 		7F3633A91B71A4C300CFF87B /* HQTimingFunctionMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQTimingFunctionMath.m; sourceTree = "<group>"; };
+		7F3633AC1B71AA9700CFF87B /* HQPopAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQPopAnimation.h; sourceTree = "<group>"; };
+		7F3633AD1B71AA9700CFF87B /* HQPopAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQPopAnimation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,7 @@
 		4DDD78C41AEDC67200E1B2B3 /* HQAnimationsLib */ = {
 			isa = PBXGroup;
 			children = (
+				7F3633AB1B71AA6600CFF87B /* pop */,
 				4DDD78D61AEE184500E1B2B3 /* movingBubble */,
 				4DDD78D11AEE17E500E1B2B3 /* springFlipper */,
 				7F3633A81B71A4C300CFF87B /* HQTimingFunctionMath.h */,
@@ -166,6 +170,15 @@
 				4DDD78DB1AEE1BA700E1B2B3 /* HQEllipticAnimationButton.m */,
 			);
 			path = movingBubble;
+			sourceTree = "<group>";
+		};
+		7F3633AB1B71AA6600CFF87B /* pop */ = {
+			isa = PBXGroup;
+			children = (
+				7F3633AC1B71AA9700CFF87B /* HQPopAnimation.h */,
+				7F3633AD1B71AA9700CFF87B /* HQPopAnimation.m */,
+			);
+			path = pop;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +289,7 @@
 				4DDD78A11AEDC64C00E1B2B3 /* main.m in Sources */,
 				4DDD78C71AEDCA3100E1B2B3 /* HQAnimationShowViewController.m in Sources */,
 				4DDD78D41AEE17FF00E1B2B3 /* HQSpringFlipperAnimation.m in Sources */,
+				7F3633AE1B71AA9700CFF87B /* HQPopAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

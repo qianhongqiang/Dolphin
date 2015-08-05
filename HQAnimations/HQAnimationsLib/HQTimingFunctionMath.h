@@ -12,4 +12,6 @@
 
 +(double)dampValueWithBasicValue:(double)value damping:(double)damping velocity:(double)velocity;
 
++(double)popValueWithBasicValue:(double)value velocity:(double)velocity;
+
 @end
