@@ -10,6 +10,8 @@
 #import "HQSpringFlipperAnimation.h"
 #import "HQEllipticAnimationButton.h"
 
+#import "HQTimingFunctionMath.h"
+
 @interface HQAnimationShowViewController()
 
 @property (nonatomic, assign) HQAnimationType animationType;

@@ -7,6 +7,7 @@
 //
 
 #import "HQSpringFlipperAnimation.h"
+#import "HQTimingFunctionMath.h"
 #import <UIKit/UIKit.h>
 
 typedef struct {
@@ -86,7 +87,7 @@ static const double kVelocityMutiplier = 10;
     
     for (double i = 0; i < kNumberOfPoints; ++i) {
         double x = i / kNumberOfPoints;
-        double normalizedValue = [self keyFrameAnimationValueWithBasicValue:x damping:damping velocity:velocity];
+        double normalizedValue = [HQTimingFunctionMath dampValueWithBasicValue:x damping:damping velocity:velocity];
         double value = toValue - distanceBetweenValues * normalizedValue;
         [values addObject:@(value)];
     }
@@ -94,11 +95,6 @@ static const double kVelocityMutiplier = 10;
     [values addObject:@(toValue)];
     
     return [NSArray arrayWithArray:values];
-}
-
-+(double)keyFrameAnimationValueWithBasicValue:(double)value damping:(double)damping velocity:(double)velocity
-{
-    return pow(M_E, -damping * value) * cos(velocity * value);
 }
 
 @end

@@ -18,6 +18,7 @@
 		4DDD78D41AEE17FF00E1B2B3 /* HQSpringFlipperAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD78D31AEE17FF00E1B2B3 /* HQSpringFlipperAnimation.m */; };
 		4DDD78D91AEE184500E1B2B3 /* HQEllipticMotionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD78D81AEE184500E1B2B3 /* HQEllipticMotionAnimation.m */; };
 		4DDD78DC1AEE1BA700E1B2B3 /* HQEllipticAnimationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD78DB1AEE1BA700E1B2B3 /* HQEllipticAnimationButton.m */; };
+		7F3633AA1B71A4C300CFF87B /* HQTimingFunctionMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3633A91B71A4C300CFF87B /* HQTimingFunctionMath.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		4DDD78D81AEE184500E1B2B3 /* HQEllipticMotionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQEllipticMotionAnimation.m; sourceTree = "<group>"; };
 		4DDD78DA1AEE1BA700E1B2B3 /* HQEllipticAnimationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQEllipticAnimationButton.h; sourceTree = "<group>"; };
 		4DDD78DB1AEE1BA700E1B2B3 /* HQEllipticAnimationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQEllipticAnimationButton.m; sourceTree = "<group>"; };
+		7F3633A81B71A4C300CFF87B /* HQTimingFunctionMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQTimingFunctionMath.h; sourceTree = "<group>"; };
+		7F3633A91B71A4C300CFF87B /* HQTimingFunctionMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQTimingFunctionMath.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +142,8 @@
 			children = (
 				4DDD78D61AEE184500E1B2B3 /* movingBubble */,
 				4DDD78D11AEE17E500E1B2B3 /* springFlipper */,
+				7F3633A81B71A4C300CFF87B /* HQTimingFunctionMath.h */,
+				7F3633A91B71A4C300CFF87B /* HQTimingFunctionMath.m */,
 			);
 			path = HQAnimationsLib;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 			files = (
 				4DDD78DC1AEE1BA700E1B2B3 /* HQEllipticAnimationButton.m in Sources */,
 				4DDD78A71AEDC64C00E1B2B3 /* ViewController.m in Sources */,
+				7F3633AA1B71A4C300CFF87B /* HQTimingFunctionMath.m in Sources */,
 				4DDD78D91AEE184500E1B2B3 /* HQEllipticMotionAnimation.m in Sources */,
 				4DDD78A41AEDC64C00E1B2B3 /* AppDelegate.m in Sources */,
 				4DDD78A11AEDC64C00E1B2B3 /* main.m in Sources */,
@@ -466,6 +472,7 @@
 				4DDD78C01AEDC64C00E1B2B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4DDD78C11AEDC64C00E1B2B3 /* Build configuration list for PBXNativeTarget "HQAnimationsTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +481,7 @@
 				4DDD78C31AEDC64C00E1B2B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
