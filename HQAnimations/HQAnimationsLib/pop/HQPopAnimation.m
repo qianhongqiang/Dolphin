@@ -8,7 +8,6 @@
 
 #import "HQPopAnimation.h"
 #import "HQTimingFunctionMath.h"
-#import "HQAnimaition.h"
 
 typedef struct {
     char *keyPath;
@@ -21,7 +20,7 @@ typedef struct {
 
 //数值常量
 PopAnimationParams const popParams = (PopAnimationParams){
-    .keyPath = HQ_c_AnimationKeyTransformScale,
+    .keyPath = "transform.scale",
     .duration = 0.8,
     .fromValue = 0.0,
     .toValue = M_PI,
