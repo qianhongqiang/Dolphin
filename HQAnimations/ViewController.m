@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.animaitions = @[@"springFlipper",@"movingBubble",@"pop"];
+    self.animaitions = @[@"springFlipper",@"movingBubble",@"pop",@"shake"];
     
     UITableView *animationListView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     animationListView.rowHeight = 50;
@@ -29,6 +29,7 @@
     animationListView.delegate = self;
     animationListView.dataSource = self;
     [self.view addSubview:animationListView];
+    
 }
 
 #pragma -mark tableView代理

@@ -9,9 +9,8 @@
 #import "HQAnimationShowViewController.h"
 #import "HQSpringFlipperAnimation.h"
 #import "HQEllipticAnimationButton.h"
-#import "HQPopAnimation.h"
 
-#import "HQTimingFunctionMath.h"
+#import "HQAnimationDefine.h"
 
 @interface HQAnimationShowViewController()
 
@@ -89,6 +88,20 @@
             tip.textColor = [UIColor purpleColor];
         }
             break;
+        case HQAnimationShake:
+        {
+            UIButton *popBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+            [popBtn setImage:[UIImage imageNamed:@"testImage"] forState:UIControlStateNormal];
+            [popBtn addTarget:self action:@selector(shakeAnimation:) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:popBtn];
+            
+            UILabel *tip = [[UILabel alloc] initWithFrame:CGRectMake(100, 220, 100, 100)];
+            [self.view addSubview:tip];
+            tip.text = @"点击泡泡";
+            tip.textAlignment = NSTextAlignmentCenter;
+            tip.textColor = [UIColor purpleColor];
+        }
+            break;
             
         default:
             break;
@@ -104,6 +117,12 @@
 
 -(void)popAnimation:(UIButton *)sender {
     HQPopAnimation *pop = [HQPopAnimation pop];
+    
+    [sender.layer addAnimation:pop forKey:nil];
+}
+
+-(void)shakeAnimation:(UIButton *)sender {
+    HQShakeAnimation *pop = [HQShakeAnimation shake];
     
     [sender.layer addAnimation:pop forKey:nil];
 }

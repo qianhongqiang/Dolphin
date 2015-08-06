@@ -14,4 +14,6 @@
 
 +(double)popValueWithBasicValue:(double)value velocity:(double)velocity;
 
++(double)shakeValueWithBasicValue:(double)value tension:(double)tension velocity:(double)velocity;
+
 @end
