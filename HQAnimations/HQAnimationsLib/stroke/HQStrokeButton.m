@@ -41,21 +41,21 @@
     
     NSMutableArray *values = [NSMutableArray new];
     
-    for (int linear1 = 0; linear1 < 20; linear1 ++ ) {
+    for (int linear1 = 0; linear1 < 100; linear1 ++ ) {
         [values addObject:@(_percent)];
     }
 
     
-    for (int linear = 0; linear < 40; linear ++ ) {
+    for (int linear = 0; linear < 120; linear ++ ) {
         
-        double value = (strokend - _percent) / 40 * linear + _percent;
+        double value = (strokend - _percent) / 120 * linear + _percent;
         
         [values addObject:@(value)];
     }
     
-    for (double i = 1; i < 20 + 1; ++i) {
-        double x = i / 20;
-        double value = [HQTimingFunctionMath shakeValueWithBasicValue:x tension:0.1 velocity:0.5] *0.5 + strokend;
+    for (double i = 1; i < 120 + 1; ++i) {
+        double x = i / 120;
+        double value = [HQTimingFunctionMath shakeValueWithBasicValue:x tension:.5 velocity:0.5] * (strokend - _percent) + strokend;
         NSLog(@"%f",value);
         [values addObject:@(value)];
     }
@@ -64,7 +64,7 @@
     
     animation.removedOnCompletion = NO;
     animation.fillMode = kCAFillModeForwards;
-    animation.duration = .4;
+    animation.duration = .5;
     animation.values = values;
     
     [self.traceLayer addAnimation:animation forKey:@"strokeEnd"];

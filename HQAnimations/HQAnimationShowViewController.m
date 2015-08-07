@@ -111,22 +111,16 @@
             [self.strokeBtn addTarget:self action:@selector(clockAnimation:) forControlEvents:UIControlEventTouchUpInside];
             [self.view addSubview:self.strokeBtn];
             
-            UILabel *tip = [[UILabel alloc] initWithFrame:CGRectMake(100, 220, 100, 100)];
-            [self.view addSubview:tip];
-            tip.text = @"点击泡泡";
-            tip.textAlignment = NSTextAlignmentCenter;
-            tip.textColor = [UIColor purpleColor];
+//            UISlider *slide = [[UISlider alloc] initWithFrame:CGRectMake(0, 200, 320, 40)];
+//            [slide addTarget:self action:@selector(slideChanged:) forControlEvents:UIControlEventTouchUpOutside];
+//            slide.maximumValue = 1;
+//            slide.minimumValue = 0;
+//            [self.view addSubview:slide];
             
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(250, 100, 100, 100)];
-            [self.view addSubview:label];
-            label.text = @"duang~~";
-            label.textColor = [UIColor purpleColor];
-            
-            UISlider *slide = [[UISlider alloc] initWithFrame:CGRectMake(0, 200, 320, 40)];
-            [slide addTarget:self action:@selector(slideChanged:) forControlEvents:UIControlEventValueChanged];
-            slide.maximumValue = 1;
-            slide.minimumValue = 0;
-            [self.view addSubview:slide];
+            UIButton *popBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 200, 100, 100)];
+            popBtn.backgroundColor = [UIColor yellowColor];
+            [popBtn addTarget:self action:@selector(btnChanged:) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:popBtn];
         }
             break;
             
@@ -154,12 +148,28 @@
     [sender.layer addAnimation:pop forKey:nil];
 }
 
--(void)clockAnimation:(HQStrokeButton *)sender {
-    [sender springSetSroke:0.5f];
-}
+static int test  = 1;
 
 -(void)slideChanged:(UISlider *)sender {
-    [self.strokeBtn springSetSroke:sender.value];
+    if (test == 1) {
+        [self.strokeBtn springSetSroke:0.5];
+        test = 2;
+    }else {
+        
+        [self.strokeBtn springSetSroke:0.8];
+        test = 1;
+    }
+}
+
+-(void)btnChanged:(UIButton *)sender {
+    if (test == 1) {
+        [self.strokeBtn springSetSroke:0.5];
+        test = 2;
+    }else {
+        
+        [self.strokeBtn springSetSroke:0.8];
+        test = 1;
+    }
 }
 
 -(void)closeVC
