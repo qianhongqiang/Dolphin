@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) CAShapeLayer *traceLayer;
 
+@property (nonatomic, assign) float percent;
+
 @end
 
 @implementation HQStrokeButton
@@ -27,7 +29,7 @@
         [self.layer addSublayer:self.rightLayer];
         [self.layer addSublayer:self.traceLayer];
         [self.layer setMask:self.traceLayer];
-        self.traceLayer.strokeEnd = .8;
+        self.traceLayer.strokeEnd = 0;
     }
     return self;
 }
@@ -35,23 +37,39 @@
 #pragma maek - private
 -(void)springSetSroke:(CGFloat)strokend {
     
+    
+    
     NSMutableArray *values = [NSMutableArray new];
     
-    for (double i = 1; i < 100 + 1; ++i) {
-        double x = i / 100;
-        double value = [HQTimingFunctionMath shakeValueWithBasicValue:x tension:1 velocity:1] + strokend;
-        NSLog(@"%f",value);
+    for (int linear1 = 0; linear1 < 20; linear1 ++ ) {
+        [values addObject:@(_percent)];
+    }
+
+    
+    for (int linear = 0; linear < 40; linear ++ ) {
+        
+        double value = (strokend - _percent) / 40 * linear + _percent;
+        
         [values addObject:@(value)];
     }
     
+    for (double i = 1; i < 20 + 1; ++i) {
+        double x = i / 20;
+        double value = [HQTimingFunctionMath shakeValueWithBasicValue:x tension:0.1 velocity:0.5] *0.5 + strokend;
+        NSLog(@"%f",value);
+        [values addObject:@(value)];
+    }
+
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
     
     animation.removedOnCompletion = NO;
     animation.fillMode = kCAFillModeForwards;
-    animation.duration = .5;
+    animation.duration = .4;
     animation.values = values;
     
     [self.traceLayer addAnimation:animation forKey:@"strokeEnd"];
+    
+    _percent = strokend;
 }
 
 #pragma mark - getter

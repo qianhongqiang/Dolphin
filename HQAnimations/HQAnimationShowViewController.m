@@ -16,6 +16,8 @@
 
 @property (nonatomic, assign) HQAnimationType animationType;
 
+@property (nonatomic,strong) HQStrokeButton *strokeBtn;
+
 @end
 
 @implementation HQAnimationShowViewController
@@ -105,9 +107,9 @@
             break;
         case HQAnimationStroke:
         {
-            HQStrokeButton *clock = [[HQStrokeButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-            [clock addTarget:self action:@selector(clockAnimation:) forControlEvents:UIControlEventTouchUpInside];
-            [self.view addSubview:clock];
+            self.strokeBtn = [[HQStrokeButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+            [self.strokeBtn addTarget:self action:@selector(clockAnimation:) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:self.strokeBtn];
             
             UILabel *tip = [[UILabel alloc] initWithFrame:CGRectMake(100, 220, 100, 100)];
             [self.view addSubview:tip];
@@ -119,6 +121,12 @@
             [self.view addSubview:label];
             label.text = @"duang~~";
             label.textColor = [UIColor purpleColor];
+            
+            UISlider *slide = [[UISlider alloc] initWithFrame:CGRectMake(0, 200, 320, 40)];
+            [slide addTarget:self action:@selector(slideChanged:) forControlEvents:UIControlEventValueChanged];
+            slide.maximumValue = 1;
+            slide.minimumValue = 0;
+            [self.view addSubview:slide];
         }
             break;
             
@@ -147,7 +155,11 @@
 }
 
 -(void)clockAnimation:(HQStrokeButton *)sender {
-    [sender springSetSroke:0.2f];
+    [sender springSetSroke:0.5f];
+}
+
+-(void)slideChanged:(UISlider *)sender {
+    [self.strokeBtn springSetSroke:sender.value];
 }
 
 -(void)closeVC
