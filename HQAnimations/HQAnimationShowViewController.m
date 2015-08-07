@@ -39,6 +39,7 @@
     UIButton *closeVC = [[UIButton alloc] initWithFrame:CGRectMake(20, 50, 50, 30)];
     [closeVC setTitle:@"关闭" forState:UIControlStateNormal];
     [closeVC setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [closeVC setBackgroundImage:nil forState:UIControlStateHighlighted];
     [closeVC addTarget:self action:@selector(closeVC) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:closeVC];
     
@@ -102,6 +103,24 @@
             tip.textColor = [UIColor purpleColor];
         }
             break;
+        case HQAnimationStroke:
+        {
+            HQStrokeButton *clock = [[HQStrokeButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+            [clock addTarget:self action:@selector(clockAnimation:) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:clock];
+            
+            UILabel *tip = [[UILabel alloc] initWithFrame:CGRectMake(100, 220, 100, 100)];
+            [self.view addSubview:tip];
+            tip.text = @"点击泡泡";
+            tip.textAlignment = NSTextAlignmentCenter;
+            tip.textColor = [UIColor purpleColor];
+            
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(250, 100, 100, 100)];
+            [self.view addSubview:label];
+            label.text = @"duang~~";
+            label.textColor = [UIColor purpleColor];
+        }
+            break;
             
         default:
             break;
@@ -111,7 +130,7 @@
 -(void)flipperAnimation:(UIButton *)sender
 {
     HQSpringFlipperAnimation *springFlipper = [HQSpringFlipperAnimation springFlipper];
-
+    
     [sender.layer addAnimation:springFlipper forKey:nil];
 }
 
@@ -125,6 +144,10 @@
     HQShakeAnimation *pop = [HQShakeAnimation shake];
     
     [sender.layer addAnimation:pop forKey:nil];
+}
+
+-(void)clockAnimation:(HQStrokeButton *)sender {
+    [sender springSetSroke:0.2f];
 }
 
 -(void)closeVC

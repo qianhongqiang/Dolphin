@@ -22,8 +22,3 @@ extern NSString *const HQAnimationKeyTransformRotationX;
 extern NSString *const HQAnimationKeyTransformRotationY;
 extern NSString *const HQAnimationKeyTransformRotationZ;
 extern NSString *const HQAnimationKeyTransformRotation;
-
-
-@interface HQAnimaition : NSObject
-
-@end

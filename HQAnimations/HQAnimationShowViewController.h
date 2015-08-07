@@ -13,6 +13,7 @@ typedef NS_ENUM(NSInteger, HQAnimationType) {
     HQAnimationMovingBubble,
     HQAnimationPop,
     HQAnimationShake,
+    HQAnimationStroke,
 };
 
 

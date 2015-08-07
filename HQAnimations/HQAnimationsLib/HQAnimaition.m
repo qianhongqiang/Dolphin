@@ -22,8 +22,3 @@ NSString *const HQAnimationKeyTransformRotationX = @"transform.rotation.x";
 NSString *const HQAnimationKeyTransformRotationY = @"transform.rotation.y";
 NSString *const HQAnimationKeyTransformRotationZ = @"transform.rotation.z";
 NSString *const HQAnimationKeyTransformRotation = @"transform.rotation";
-
-
-@implementation HQAnimaition
-
-@end

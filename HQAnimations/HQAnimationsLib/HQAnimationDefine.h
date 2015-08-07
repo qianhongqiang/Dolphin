@@ -19,5 +19,6 @@
 #import "HQSpringFlipperAnimation.h"
 #import "HQPopAnimation.h"
 #import "HQShakeAnimation.h"
+#import "HQStrokeButton.h"
 
 #endif
