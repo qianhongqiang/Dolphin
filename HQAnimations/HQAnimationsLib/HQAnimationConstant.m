@@ -1,12 +1,12 @@
 //
-//  HQAnimaition.m
+//  HQAnimationConstant.m
 //  HQAnimations
 //
-//  Created by qianhongqiang on 15/8/6.
+//  Created by qianhongqiang on 15/8/8.
 //  Copyright (c) 2015年 QianHongQiang. All rights reserved.
 //
 
-#import "HQAnimaition.h"
+#import "HQAnimationConstant.h"
 
 NSString *const HQAnimationKeyTransformTranslationX = @"transform.rotation.x";
 NSString *const HQAnimationKeyTransformTranslationY = @"transform.rotation.y";
@@ -22,3 +22,5 @@ NSString *const HQAnimationKeyTransformRotationX = @"transform.rotation.x";
 NSString *const HQAnimationKeyTransformRotationY = @"transform.rotation.y";
 NSString *const HQAnimationKeyTransformRotationZ = @"transform.rotation.z";
 NSString *const HQAnimationKeyTransformRotation = @"transform.rotation";
+
+NSString *const HQAnimationKeyStrokeEnd = @"strokeEnd";

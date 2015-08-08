@@ -8,6 +8,7 @@
 
 #import "HQStrokeButton.h"
 #import "HQTimingFunctionMath.h"
+#import "HQAnimationConstant.h"
 
 @interface HQStrokeButton()
 
@@ -56,7 +57,6 @@
     for (double i = 1; i < 120 + 1; ++i) {
         double x = i / 120;
         double value = [HQTimingFunctionMath shakeValueWithBasicValue:x tension:.5 velocity:0.5] * (strokend - _percent) + strokend;
-        NSLog(@"%f",value);
         [values addObject:@(value)];
     }
 
@@ -67,7 +67,7 @@
     animation.duration = .5;
     animation.values = values;
     
-    [self.traceLayer addAnimation:animation forKey:@"strokeEnd"];
+    [self.traceLayer addAnimation:animation forKey:HQAnimationKeyStrokeEnd];
     
     _percent = strokend;
 }

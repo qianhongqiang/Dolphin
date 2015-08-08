@@ -1,8 +1,8 @@
 //
-//  HQAnimaition.h
+//  HQAnimationConstant.h
 //  HQAnimations
 //
-//  Created by qianhongqiang on 15/8/6.
+//  Created by qianhongqiang on 15/8/8.
 //  Copyright (c) 2015年 QianHongQiang. All rights reserved.
 //
 
@@ -22,3 +22,5 @@ extern NSString *const HQAnimationKeyTransformRotationX;
 extern NSString *const HQAnimationKeyTransformRotationY;
 extern NSString *const HQAnimationKeyTransformRotationZ;
 extern NSString *const HQAnimationKeyTransformRotation;
+
+extern NSString *const HQAnimationKeyStrokeEnd;

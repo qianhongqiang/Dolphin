@@ -84,7 +84,6 @@ static const double kPopVelocityMutiplier = 10;
     for (double i = 1; i < kPopNumberOfPoints + 1; ++i) {
         double x = i / kPopNumberOfPoints;
         double value = [HQTimingFunctionMath shakeValueWithBasicValue:x tension:tension velocity:velocity];
-        NSLog(@"%f",value);
         [values addObject:@(value)];
     }
     

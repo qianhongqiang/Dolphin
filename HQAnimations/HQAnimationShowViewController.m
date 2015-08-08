@@ -10,7 +10,7 @@
 #import "HQSpringFlipperAnimation.h"
 #import "HQEllipticAnimationButton.h"
 
-#import "HQAnimationDefine.h"
+#import "HQAnimation.h"
 
 @interface HQAnimationShowViewController()
 

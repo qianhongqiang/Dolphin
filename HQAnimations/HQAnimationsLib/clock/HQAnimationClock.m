@@ -79,7 +79,6 @@ static const double kPopVelocityMutiplier = 10;
     for (double i = 1; i < kPopNumberOfPoints + 1; ++i) {
         double x = i / kPopNumberOfPoints;
         double value = [HQTimingFunctionMath dampValueWithBasicValue:x damping:tension velocity:tension];
-        NSLog(@"%f",value);
         [values addObject:@(value)];
     }
     
