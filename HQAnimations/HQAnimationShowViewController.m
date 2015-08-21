@@ -112,7 +112,7 @@
             [self.view addSubview:self.strokeBtn];
             
 //            UISlider *slide = [[UISlider alloc] initWithFrame:CGRectMake(0, 200, 320, 40)];
-//            [slide addTarget:self action:@selector(slideChanged:) forControlEvents:UIControlEventTouchUpOutside];
+//            [slide addTarget:self action:@selector(slideChanged:) forControlEvents:UIControlEventValueChanged];
 //            slide.maximumValue = 1;
 //            slide.minimumValue = 0;
 //            [self.view addSubview:slide];
@@ -142,6 +142,10 @@
     [sender.layer addAnimation:pop forKey:nil];
 }
 
+-(void)clockAnimation:(UISlider *)sender {
+    
+}
+
 -(void)shakeAnimation:(UIButton *)sender {
     HQShakeAnimation *pop = [HQShakeAnimation shake];
     
@@ -151,14 +155,7 @@
 static int test  = 1;
 
 -(void)slideChanged:(UISlider *)sender {
-    if (test == 1) {
-        [self.strokeBtn springSetSroke:0.5];
-        test = 2;
-    }else {
-        
-        [self.strokeBtn springSetSroke:0.8];
-        test = 1;
-    }
+    [self.strokeBtn springSetSroke:sender.value];
 }
 
 -(void)btnChanged:(UIButton *)sender {

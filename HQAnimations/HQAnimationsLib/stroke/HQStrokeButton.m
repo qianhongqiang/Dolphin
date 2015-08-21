@@ -19,6 +19,7 @@
 
 @property (nonatomic, assign) float percent;
 
+
 @end
 
 @implementation HQStrokeButton
@@ -37,8 +38,6 @@
 
 #pragma maek - private
 -(void)springSetSroke:(CGFloat)strokend {
-    
-    
     
     NSMutableArray *values = [NSMutableArray new];
     
