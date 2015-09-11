@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import <OpenGLES/EAGL.h>
+
 @interface HQSpringAnimation : NSObject
 
 /**@抽象属性
@@ -34,5 +36,12 @@
  *  弹性,系数越大,震荡幅度越大,默认值1
  */
 @property (nonatomic, assign) CFTimeInterval springVelocity;
+
+/**
+ *  通过关键字初始化抽象动画实例
+ *
+ *  @param name 关键字,可在常量里
+ */
++ (instancetype)animationWithPropertyNamed:(NSString *)name;
 
 @end

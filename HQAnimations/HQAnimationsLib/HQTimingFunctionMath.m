@@ -21,6 +21,10 @@ static inline double shakeTimingFunction(double value, double tension, double ve
     return cos(value * M_PI * 2 * velocity) * (1-value) * tension;
 }
 
+static inline double springTimingFunction(double value, double tension, double velocity) {
+    return cos(value * M_PI * 2 * velocity) * (1-value) * tension;
+}
+
 static inline double b3_friction3(double x)
 {
     return (0.00000045 * pow(x, 3)) - (0.000332 * pow(x, 2)) + 0.1078 * x + 5.84;
@@ -38,6 +42,10 @@ static inline double b3_friction3(double x)
 
 +(double)shakeValueWithBasicValue:(double)value tension:(double)tension velocity:(double)velocity {
     return shakeTimingFunction(value,tension,velocity);
+}
+
++(double)springValueEithBasicValue:(double)value tension:(double)tension velocity:(double)velocity {
+    return springTimingFunction(value,tension,velocity);
 }
 
 @end

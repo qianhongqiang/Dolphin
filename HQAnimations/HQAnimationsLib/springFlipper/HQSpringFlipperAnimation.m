@@ -61,6 +61,7 @@ static const double kVelocityMutiplier = 10;
                                               toValue:toValue
                                           withDamping:damping
                                           andVelocity:velocity];
+    
     return animation;
 }
 
