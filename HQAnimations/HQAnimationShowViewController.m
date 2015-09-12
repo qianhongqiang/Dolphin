@@ -10,6 +10,7 @@
 #import "HQSpringFlipperAnimation.h"
 #import "HQEllipticAnimationButton.h"
 #import "HQSpringAnimation.h"
+#import "HQSpringTransformAnimation.h"
 
 #import "HQAnimation.h"
 
@@ -112,18 +113,25 @@
             [self.strokeBtn addTarget:self action:@selector(clockAnimation:) forControlEvents:UIControlEventTouchUpInside];
             [self.view addSubview:self.strokeBtn];
             
-//            UISlider *slide = [[UISlider alloc] initWithFrame:CGRectMake(0, 200, 320, 40)];
-//            [slide addTarget:self action:@selector(slideChanged:) forControlEvents:UIControlEventValueChanged];
-//            slide.maximumValue = 1;
-//            slide.minimumValue = 0;
-//            [self.view addSubview:slide];
-            
             UIButton *popBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 200, 100, 100)];
             popBtn.backgroundColor = [UIColor yellowColor];
             [popBtn addTarget:self action:@selector(btnChanged:) forControlEvents:UIControlEventTouchUpInside];
             [self.view addSubview:popBtn];
         }
             break;
+        case HQAnimationSpringMoving:
+        {
+            UIButton *popBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+            [popBtn setImage:[UIImage imageNamed:@"testImage"] forState:UIControlStateNormal];
+            [popBtn addTarget:self action:@selector(springMoving:) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:popBtn];
+            
+            UILabel *tip = [[UILabel alloc] initWithFrame:CGRectMake(100, 220, 100, 100)];
+            [self.view addSubview:tip];
+            tip.text = @"点击泡泡";
+            tip.textAlignment = NSTextAlignmentCenter;
+            tip.textColor = [UIColor purpleColor];
+        }
             
         default:
             break;
@@ -169,6 +177,13 @@ static int test  = 1;
         test = 1;
     }
 }
+
+-(void)springMoving:(UIButton *)sender {
+    HQSpringTransformAnimation *ani = [HQSpringTransformAnimation springTransformFromValue:[NSValue valueWithCGPoint:CGPointMake(150, 150)] toValue:[NSValue valueWithCGPoint:CGPointMake(150, 450)]];
+    [sender.layer addAnimation:ani forKey:nil];
+}
+
+
 
 -(void)closeVC
 {
