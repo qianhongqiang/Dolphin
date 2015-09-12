@@ -8,7 +8,9 @@
 
 #import "HQTimingFunctionMath.h"
 
-static double mappingValue = 0.8;
+static double const totalValueToOne = 1;
+
+static double mappingValue = 0.5;
 
 static inline double dampTimingFunction(double value,double damping,double velocity) {
     return pow(M_E, -damping * value) * cos(velocity * value);
@@ -31,38 +33,18 @@ static inline double easeInSpringTimingFunction(double value,double easeInRate,d
     
     double mappedValue = value / mappingValue;
     
-    if (mappedValue <= 1 && value >= 0) {
+    if (mappedValue <= totalValueToOne && value >= 0) {
         return pow(mappedValue, easeInRate);
-    }else if (mappedValue < (1 / mappingValue)) {
-        double lastSpringValue = mappedValue - 1;
-        double velocity = 2 * M_PI / ((1 / mappedValue) - 1);
+    }else if (mappedValue < (totalValueToOne / mappingValue)) {
+        double lastSpringValue = mappedValue - totalValueToOne;
+        double velocity =  M_PI / ((totalValueToOne / mappedValue) - totalValueToOne);
         
-        return 1 + pow(M_E, -damping * lastSpringValue) * sin(lastSpringValue * velocity);
+        return totalValueToOne + (1 / damping) * easeInRate * pow(M_E, -damping * lastSpringValue) * sin(lastSpringValue * velocity);
     }else {
         [NSException raise:@"timingFunctionException" format:@"value must between 0 and 1"];
         return 0;
     }
 }
-
-//static inline double b2_friction1(double x)
-//{
-//    return (0.0007 * pow(x, 3)) - (0.031 * pow(x, 2)) + 0.64 * x + 1.28;
-//}
-//
-//static inline double b3_friction1(double x)
-//{
-//    return (0.0007 * pow(x, 3)) - (0.031 * pow(x, 2)) + 0.64 * x + 1.28;
-//}
-//
-//static inline double b3_friction2(double x)
-//{
-//    return (0.000044 * pow(x, 3)) - (0.006 * pow(x, 2)) + 0.36 * x + 2.;
-//}
-//
-//static inline double b3_friction3(double x)
-//{
-//    return (0.00000045 * pow(x, 3)) - (0.000332 * pow(x, 2)) + 0.1078 * x + 5.84;
-//}
 
 @implementation HQTimingFunctionMath
 

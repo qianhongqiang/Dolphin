@@ -22,7 +22,7 @@
     
     animation.removedOnCompletion = NO;
     animation.fillMode = kCAFillModeForwards;
-    animation.duration = 0.5;
+    animation.duration = 0.7;
     animation.values = [self animationValuesFromValue:fromValue
                                               toValue:toValue
                                           withDamping:damping
@@ -48,7 +48,7 @@
         CGPoint middleValuePoint;
         double test = (double) i / kNumberOfPoints;
         
-        double middleValue = [HQTimingFunctionMath easeInSpringWithBasicValue:test easeInRate:1.5 damping:10];
+        double middleValue = [HQTimingFunctionMath easeInSpringWithBasicValue:test easeInRate:1 damping:3];
         middleValuePoint.x = fromPoint.x + middleValue * distanceBetweenValuesX;
         middleValuePoint.y = fromPoint.y + middleValue * distanceBetweenValuesY;
         [values addObject:[NSValue valueWithCGPoint:middleValuePoint]];
