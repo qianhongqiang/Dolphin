@@ -10,7 +10,7 @@
 
 static double const totalValueToOne = 1;
 
-static double mappingValue = 0.5;
+static double mappingValue = 0.3;
 
 static inline double dampTimingFunction(double value,double damping,double velocity) {
     return pow(M_E, -damping * value) * cos(velocity * value);
@@ -37,9 +37,9 @@ static inline double easeInSpringTimingFunction(double value,double easeInRate,d
         return pow(mappedValue, easeInRate);
     }else if (mappedValue < (totalValueToOne / mappingValue)) {
         double lastSpringValue = mappedValue - totalValueToOne;
-        double velocity =  M_PI / ((totalValueToOne / mappedValue) - totalValueToOne);
+        double velocity = 2 * M_PI / ((totalValueToOne / mappedValue) - totalValueToOne);
         
-        return totalValueToOne + (1 / damping) * easeInRate * pow(M_E, -damping * lastSpringValue) * sin(lastSpringValue * velocity);
+        return totalValueToOne + (1 / velocity * 6)* (1 / damping) * easeInRate * pow(M_E, -damping * lastSpringValue) * sin(lastSpringValue * velocity);
     }else {
         [NSException raise:@"timingFunctionException" format:@"value must between 0 and 1"];
         return 0;
