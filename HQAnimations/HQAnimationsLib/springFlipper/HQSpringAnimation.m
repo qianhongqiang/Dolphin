@@ -76,3 +76,11 @@
 }
 
 @end
+
+@implementation CAKeyframeAnimation (HQSpringIdentifier)
+
+-(NSString *)identifier {
+    return [NSString stringWithFormat:@"%lu",(unsigned long)self.hash];
+}
+
+@end

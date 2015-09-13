@@ -179,18 +179,9 @@ static int test  = 1;
 }
 
 -(void)springMoving:(UIButton *)sender {
-//    HQSpringTransformAnimation *ani = [HQSpringTransformAnimation springTransformFromValue:[NSValue valueWithCGPoint:CGPointMake(150, 150)] toValue:[NSValue valueWithCGPoint:CGPointMake(150, 450)]];
-//    ani.delegate = self;
-//    [sender.layer addAnimation:ani forKey:nil];
-//    [sender setFrame:CGRectMake(100, 400, 100, 100)];
-    
-//    [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.7 options:0 animations:^{
-//        [sender setFrame:CGRectMake(100, 400, 100, 100)];
-//    } completion:nil];
-    
     HQSpringAnimation *animation = [HQSpringAnimation animationWithPropertyNamed:@"position"];
-    animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(150, 150)];
-    animation.toValue = [NSValue valueWithCGPoint:CGPointMake(150, 450)];
+    animation.fromValue = [NSValue valueWithCGPoint:sender.center];
+    animation.toValue = [NSValue valueWithCGPoint:CGPointMake(150, sender.center.y == 450 ? 150 : 450)];
     animation.duration = 1;
     
     [sender hq_addAnimation:animation forKey:nil];

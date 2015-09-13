@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#import <OpenGLES/EAGL.h>
+#import <UIKit/UIKit.h>
 
 @interface HQSpringAnimation : NSObject
 
@@ -61,6 +60,12 @@
 
 @end
 
+@interface HQSpringAnimation (Bezier)
+
+@property (nonatomic, assign) CGPoint test;
+
+@end
+
 @interface NSObject (HQSpring)
 
 - (void)hq_addAnimation:(HQSpringAnimation *)anim forKey:(NSString *)key;
@@ -68,5 +73,11 @@
 - (void)hq_removeAnimationForKey:(NSString *)key;
 - (NSArray *)hq_animationKeys;
 - (id)hq_animationForKey:(NSString *)key;
+
+@end
+
+@interface CAKeyframeAnimation (HQSpringIdentifier)
+
+@property (nonatomic, copy) NSString *identifier;
 
 @end

@@ -3,9 +3,11 @@
 #import "HQSpringAnimation.h"
 #import <UIKit/UIKit.h>
 
+#define AnimationKey(anim) [NSString stringWithFormat:@"%lu",(unsigned long)anim.values.hash]
+
 @interface HQSpringAnimator ()
 
-@property (nonatomic, copy) NSMutableArray *animationList;
+@property (nonatomic, copy) NSMutableDictionary *animationList;
 
 @end
 
@@ -32,18 +34,25 @@
     
     UIView *receiver = (UIView *)obj;
     [receiver.layer addAnimation:animation forKey:key];
+    
+    [self.animationList setObject:@[anim,receiver] forKey:AnimationKey(anim)];
 }
 
 -(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    CAKeyframeAnimation *animation = (CAKeyframeAnimation *)anim;
+    
     if (YES == flag) {
-        NSLog(@"%%%%%%%%%%");
+        HQSpringAnimation *animations = [[self.animationList objectForKey:AnimationKey(animation)] firstObject];
+        UIView *receiver = [[self.animationList objectForKey:AnimationKey(animation)] lastObject];
+        [receiver setCenter:[animations.toValue CGPointValue]];
+        [self.animationList removeObjectForKey:AnimationKey(animation)];
     }
 }
 
 #pragma mark - getter
--(NSMutableArray *)animationList {
+-(NSMutableDictionary *)animationList {
     if (nil == _animationList) {
-        _animationList = [NSMutableArray array];
+        _animationList = [NSMutableDictionary dictionary];
     }
     return _animationList;
 }
