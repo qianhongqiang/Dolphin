@@ -36,9 +36,8 @@
     
     for (int i = 0; i < kNumberOfPoints; ++i) {
         CGPoint middleValuePoint;
-        double test = (double) i / kNumberOfPoints;
-        
-        double middleValue = [HQTimingFunctionMath easeInSpringWithBasicValue:test easeInRate:3 damping:3];
+        double middleValueRate = (double) i / kNumberOfPoints;
+        double middleValue = [HQTimingFunctionMath easeInSpringWithBasicValue:middleValueRate easeInRate:self.acceleration damping:self.damping];
         middleValuePoint.x = fromPoint.x + middleValue * distanceBetweenValuesX;
         middleValuePoint.y = fromPoint.y + middleValue * distanceBetweenValuesY;
         [values addObject:[NSValue valueWithCGPoint:middleValuePoint]];

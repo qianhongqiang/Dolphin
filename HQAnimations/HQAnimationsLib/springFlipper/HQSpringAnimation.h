@@ -37,6 +37,11 @@
 @property (nonatomic, assign) double springVelocity;
 
 /**@抽象属性
+ * 加速度,建议值[];
+ */
+@property (nonatomic, assign) double acceleration;
+
+/**@抽象属性
  * 动画开始值
  */
 @property (nonatomic, strong) NSValue *fromValue;
