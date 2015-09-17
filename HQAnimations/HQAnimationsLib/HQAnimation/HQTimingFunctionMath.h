@@ -16,4 +16,6 @@
 
 +(double)shakeValueWithBasicValue:(double)value tension:(double)tension velocity:(double)velocity;
 
++(double)easeInSpringWithBasicValue:(double)value easeInRate:(double)rate damping:(double)damping;
+
 @end

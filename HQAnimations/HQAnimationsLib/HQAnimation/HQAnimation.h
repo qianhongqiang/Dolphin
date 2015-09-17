@@ -16,6 +16,8 @@
 
 #import "HQAnimationConstant.h"
 
+#import "HQSpringAnimation.h"
+
 #import "HQSpringFlipperAnimation.h"
 #import "HQPopAnimation.h"
 #import "HQShakeAnimation.h"
