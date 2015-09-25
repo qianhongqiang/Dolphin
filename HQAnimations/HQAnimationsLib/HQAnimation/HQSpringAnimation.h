@@ -9,6 +9,32 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class HQSpringAnimation;
+
+#pragma mark - chainable block
+#define HQAnimationInstance   [[HQSpringAnimation alloc] init]
+
+typedef HQSpringAnimation *(^HQDamping)(double damping);
+#define HQDamping(damping) ^HQSpringAnimation* (double damping)
+
+typedef HQSpringAnimation *(^HQDuration)(double duration);
+#define HQDuration(duration) ^HQSpringAnimation* (double duration)
+
+typedef HQSpringAnimation *(^HQFromRect)(CGRect fromRect);
+#define HQFromRect(fromRect) ^HQSpringAnimation* (CGRect fromRect)
+
+typedef HQSpringAnimation *(^HQToRect)(CGRect toRect);
+#define HQToRect(toRect) ^HQSpringAnimation* (CGRect toRect)
+
+typedef HQSpringAnimation *(^HQFromPoint)(CGPoint fromPoint);
+#define HQFromPoint(fromPoint) ^HQSpringAnimation* (CGPoint fromPoint)
+
+typedef HQSpringAnimation *(^HQToPoint)(CGPoint toPoint);
+#define HQToPoint(toPoint) ^HQSpringAnimation* (CGPoint toPoint)
+
+typedef HQSpringAnimation *(^HQAccelerate)(double accelerate);
+#define HQAccelerate(accelerate) ^HQSpringAnimation* (double accelerate)
+
 @interface HQSpringAnimation : NSObject
 
 /**@抽象属性
@@ -63,6 +89,15 @@
  */
 + (instancetype)animationWithPropertyNamed:(NSString *)name;
 
+
+#pragma mark - chainable
+
+-(HQDamping)damp;
+-(HQDuration)durationV;
+-(HQFromPoint)fromPoint;
+-(HQToPoint)toPoint;
+-(HQAccelerate)accelerate;
+
 @end
 
 @interface HQSpringAnimation (Bezier)
@@ -81,8 +116,3 @@
 
 @end
 
-@interface CAKeyframeAnimation (HQSpringIdentifier)
-
-@property (nonatomic, copy) NSString *identifier;
-
-@end

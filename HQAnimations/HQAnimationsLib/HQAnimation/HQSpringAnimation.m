@@ -50,6 +50,48 @@
     return [self animationValuesFromValue:self.fromValue toValue:self.toValue withDamping:self.damping andVelocity:self.springVelocity];
 }
 
+#pragma mark - chainable
+-(HQDamping)damp {
+    HQDamping damp = HQDamping(damp) {
+        self.damping = damp;
+        return self;
+    };
+    return damp;
+}
+
+-(HQDuration)durationV {
+    HQDuration durationV = HQDuration(duration) {
+        self.duration = duration;
+        return self;
+    };
+    return durationV;
+}
+
+-(HQFromPoint)fromPoint {
+    HQFromPoint fromPoint = HQFromPoint(fromPoint) {
+        self.keyPath = @"position";
+        self.fromValue = [NSValue valueWithCGPoint:fromPoint];
+        return self;
+    };
+    return fromPoint;
+}
+
+-(HQToPoint)toPoint {
+    HQToPoint toPoint = HQToPoint(toPoint) {
+        self.toValue = [NSValue valueWithCGPoint:toPoint];
+        return self;
+    };
+    return toPoint;
+}
+
+-(HQAccelerate)accelerate {
+    HQAccelerate accelerate = HQAccelerate(accelerate) {
+        self.acceleration = accelerate;
+        return self;
+    };
+    return accelerate;
+}
+
 @end
 
 @implementation NSObject (HQSpring)
@@ -72,14 +114,6 @@
 
 - (id)hq_animationForKey:(NSString *)key {
     return nil;
-}
-
-@end
-
-@implementation CAKeyframeAnimation (HQSpringIdentifier)
-
--(NSString *)identifier {
-    return [NSString stringWithFormat:@"%lu",(unsigned long)self.hash];
 }
 
 @end

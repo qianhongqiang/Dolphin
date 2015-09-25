@@ -179,14 +179,7 @@ static int test  = 1;
 }
 
 -(void)springMoving:(UIButton *)sender {
-    HQSpringAnimation *animation = [HQSpringAnimation animationWithPropertyNamed:@"position"];
-    animation.fromValue = [NSValue valueWithCGPoint:sender.center];
-    animation.toValue = [NSValue valueWithCGPoint:CGPointMake(150, sender.center.y == 450 ? 150 : 450)];
-    animation.duration = 1.5;
-    animation.damping = 3;
-    animation.acceleration = 3;
-    
-    [sender hq_addAnimation:animation forKey:nil];
+    [sender hq_addAnimation:HQAnimationInstance.damp(3).accelerate(3).durationV(1.5).fromPoint(sender.center).toPoint(CGPointMake(150, sender.center.y == 450 ? 150 : 450)) forKey:nil];
 }
 
 
