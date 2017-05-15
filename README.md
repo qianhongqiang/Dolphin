@@ -22,7 +22,7 @@ pod "HQAnimation"
 
 ## Author
 
-qianhongqiang2012@163.com, hongqiang.qhq@koubei.com
+qianhongqiang2012@163.com
 
 ## License
 
