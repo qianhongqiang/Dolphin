@@ -1,10 +1,10 @@
-/**
- * 杭州哇财网络科技有限公司 HQAnimations
- * @file    HQSpringTransformAnimation.h
- * @brief   <#请输入简要说明#>
- * @author  青金
- * @date    15/9/11
- */
+//
+//  HQAnimationClock.m
+//  HQAnimations
+//
+//  Created by qianhongqiang on 15/8/6.
+//  Copyright (c) 2015年 QianHongQiang. All rights reserved.
+//
 
 #import <QuartzCore/QuartzCore.h>
 

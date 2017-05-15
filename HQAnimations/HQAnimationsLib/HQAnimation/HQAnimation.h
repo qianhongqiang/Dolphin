@@ -2,25 +2,23 @@
 //  HQAnimation.h
 //  HQAnimations
 //
-//  Created by qianhongqiang on 15/8/8.
-//  Copyright (c) 2015年 QianHongQiang. All rights reserved.
+//  Created by qianhongqiang on 2017/5/11.
+//  Copyright © 2017年 QianHongQiang. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <Availability.h>
+#import "HQAnimationState.h"
 
-#ifndef _HQAnimation_
-#define _HQAnimation_
+@interface HQAnimation : NSObject
 
-#import "HQTimingFunctionMath.h"
+@property (nonatomic, strong) HQAnimationState *animationState;
 
-#import "HQAnimationConstant.h"
+@property (nonatomic, assign) CFTimeInterval *duration;
 
-#import "HQSpringAnimation.h"
+@end
 
-#import "HQSpringFlipperAnimation.h"
-#import "HQPopAnimation.h"
-#import "HQShakeAnimation.h"
-#import "HQStrokeButton.h"
+@interface NSObject (HQAnimation)
 
-#endif
+- (void)qhq_addAnimation:(HQAnimation *)anim forKey:(NSString *)key;
+
+@end

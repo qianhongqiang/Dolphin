@@ -12,7 +12,8 @@
 #import "HQSpringAnimation.h"
 #import "HQSpringTransformAnimation.h"
 
-#import "HQAnimation.h"
+#import "HQPOP.h"
+#import "HQBasicAnimation.h"
 
 @interface HQAnimationShowViewController()
 
@@ -131,7 +132,19 @@
             tip.text = @"点击泡泡";
             tip.textAlignment = NSTextAlignmentCenter;
             tip.textColor = [UIColor purpleColor];
+            
         }
+            break;
+        case HQAnimationTest:
+        {
+            UIButton *popBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+            [popBtn setImage:[UIImage imageNamed:@"testImage"] forState:UIControlStateNormal];
+            
+            [popBtn addTarget:self action:@selector(newPop:) forControlEvents:UIControlEventTouchUpInside];
+            
+            [self.view addSubview:popBtn];
+        }
+            break;
             
         default:
             break;
@@ -159,6 +172,33 @@
     HQShakeAnimation *pop = [HQShakeAnimation shake];
     
     [sender.layer addAnimation:pop forKey:nil];
+}
+
+- (void)newPop:(UIButton *)sender
+{
+    if (sender.selected == YES) {
+        sender.selected = NO;
+        
+        HQBasicAnimation *test = [[HQBasicAnimation alloc] init];
+        
+        test.fromValue =  [NSValue valueWithCGRect:sender.frame];
+        test.toValue = [NSValue valueWithCGRect:CGRectMake(100, 100, 100, 100)];
+        test.duration = 1;
+        
+        [sender qhq_addAnimation:test forKey:@"dd"];
+        
+        return;
+    }
+    
+    sender.selected = YES;
+    
+    HQBasicAnimation *test = [[HQBasicAnimation alloc] init];
+    
+    test.fromValue =  [NSValue valueWithCGRect:sender.frame];
+    test.toValue = [NSValue valueWithCGRect:CGRectMake(300, 300, 100, 100)];
+    test.duration = 1;
+    
+    [sender qhq_addAnimation:test forKey:@"dd"];
 }
 
 static int test  = 1;
