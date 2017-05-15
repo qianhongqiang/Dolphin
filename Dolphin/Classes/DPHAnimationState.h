@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class DPHAnimation;
+
 typedef NS_ENUM(NSUInteger, DPHAnimationValueType) {
     DPHAnimationValueTypeUnkown = 0,
     DPHAnimationValueTypeInteger,

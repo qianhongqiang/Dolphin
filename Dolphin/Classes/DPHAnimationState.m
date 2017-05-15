@@ -112,8 +112,18 @@
     
     float normalization = [self normalizeCurrentTime:time];
     
-    float (^timeFunction)(float normal) = ^(float normal){
-        return normal * normal * normal;
+    double (^timeFunction)(double normal) = ^(double normal){
+        
+        if (normal < 4/11.0) {
+            return (121 * normal * normal)/16.0;
+        } else if (normal < 8/11.0) {
+            return (363/40.0 * normal * normal) - (99/10.0 * normal) + 17/5.0;
+        } else if (normal < 9/10.0) {
+            return (4356/361.0 * normal * normal) - (35442/1805.0 * normal) + 16061/1805.0;
+        }
+        return (54/5.0 * normal * normal) - (513/25.0 * normal) + 268/25.0;
+        
+//        return normal * normal * normal;
     };
     
     switch (self.valueType) {
@@ -130,6 +140,19 @@
             };
             
             _currentValue = [NSValue valueWithCGRect:desRect(fromRect,toRect)];
+        }
+            break;
+        case DPHAnimationValueTypePoint:
+        {
+            CGPoint fromPoint = [self.fromValue CGPointValue];
+            CGPoint toPoint = [self.toValue CGPointValue];
+            
+            CGPoint (^desPoint)(CGPoint from, CGPoint to) = ^(CGPoint from, CGPoint to) {
+                return CGPointMake(from.x + (to.x - from.x) * timeFunction(normalization),
+                                   from.y + (to.y - from.y) * timeFunction(normalization));
+            };
+            
+            _currentValue = [NSValue valueWithCGPoint:desPoint(fromPoint,toPoint)];
         }
             break;
             

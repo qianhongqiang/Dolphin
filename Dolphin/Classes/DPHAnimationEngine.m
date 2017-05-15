@@ -76,6 +76,11 @@ static inline void spinLock(OSSpinLock *lock,dispatch_block_t block)
 
 - (void)_update:(CADisplayLink *)link
 {
+    if (self.itemArray.count == 0) {
+        link.paused = YES;
+        return;
+    }
+    
     CFTimeInterval current = CACurrentMediaTime();
     [self _renderWithTime:current];
 }
@@ -94,23 +99,39 @@ static inline void spinLock(OSSpinLock *lock,dispatch_block_t block)
 
 - (void)_renderWithTime:(CFTimeInterval)time item:(HQAnimationEngineItem *)item
 {
-    DPHAnimation *animation = item.animation;
-    if ([animation.animationState isStart]) {
-        [animation.animationState applyAnimationTime:item.obj time:time];
-        if (animation.animationState.valueType == DPHAnimationValueTypeRect) {
+    DPHAnimationState *animationState = item.animation.animationState;
+    if ([animationState isStart]) {
+        
+        if (time - animationState.beginTime > animationState.duration) {
+            if (item.animation.completion) {
+                item.animation.completion(item.animation,YES);
+            }
+            [self removeAinmatortItemWithAnimation:item.animation];
+        }
+        
+        [animationState applyAnimationTime:item.obj time:time];
+        if (animationState.valueType == DPHAnimationValueTypeRect) {
             
-            NSValue *current = animation.animationState.currentValue;
+            NSValue *current = animationState.currentValue;
             
-            [item.obj setFrame:[current CGRectValue]];
+            DPHAnimationValueType type = animationState.valueType;
+            
+            if (type == DPHAnimationValueTypeRect) {
+                [item.obj setFrame:[current CGRectValue]];
+            } else if (type == DPHAnimationValueTypePoint) {
+                [item.obj setPosition:[current CGPointValue]];
+            }
         }
     }else {
-        [animation.animationState startIfNeed];
+        [animationState startIfNeed];
     }
     
 }
 
 - (void)addAnimation:(DPHAnimation *)anim forObject:(id)obj key:(NSString *)key
 {
+    if (!anim || !obj) return;
+    
     NSMutableDictionary<NSString *,DPHAnimation *> *dict = [self.animationsDict objectForKey:[NSString stringWithFormat:@"%lu",(unsigned long)[obj hash]]];
     if (!dict) {
         dict = [NSMutableDictionary dictionary];
@@ -129,6 +150,10 @@ static inline void spinLock(OSSpinLock *lock,dispatch_block_t block)
     item.key = key;
     
     [_itemArray addObject:item];
+    
+    if (self.display.paused == YES) {
+        self.display.paused = NO;
+    }
 }
 
 - (void)removeAnimationForObject:(id)obj key:(NSString *)key cleanupDict:(BOOL)cleanupDict

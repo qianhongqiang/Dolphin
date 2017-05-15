@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) DPHAnimationState *animationState;
 
+@property (nonatomic, copy) void(^completion)(DPHAnimation *animation,BOOL isfinished);
+
 @end
 
 @interface NSObject (Dolphin)

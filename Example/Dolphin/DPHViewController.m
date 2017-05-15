@@ -34,24 +34,24 @@
     if (sender.selected == YES) {
         sender.selected = NO;
         
-        DPHBasicAnimation *test = [[DPHBasicAnimation alloc] init];
-        
-        test.fromValue =  [NSValue valueWithCGRect:sender.frame];
-        test.toValue = [NSValue valueWithCGRect:CGRectMake(100, 100, 100, 100)];
-        test.duration = 1;
-        
-        [sender dph_addAnimation:test forKey:@"dd"];
+        sender.frame = CGRectMake(100, 100, 100, 100);
         
         return;
     }
     
     sender.selected = YES;
-    
+    NSLog(@"------%f",[NSDate date].timeIntervalSince1970);
     DPHBasicAnimation *test = [[DPHBasicAnimation alloc] init];
     
     test.fromValue =  [NSValue valueWithCGRect:sender.frame];
-    test.toValue = [NSValue valueWithCGRect:CGRectMake(300, 300, 60, 60)];
+    test.toValue = [NSValue valueWithCGRect:CGRectMake(300, 100, 100, 100)];
     test.duration = 1;
+    
+    test.completion = ^(DPHAnimation *animation, BOOL isfinished) {
+        if (isfinished) {
+            NSLog(@"------%f",[NSDate date].timeIntervalSince1970);
+        }
+    };
     
     [sender dph_addAnimation:test forKey:@"dd"];
 }
