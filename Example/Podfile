@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'HQAnimation_Example' do
+  pod 'HQAnimation', :path => '../'
+
+  target 'HQAnimation_Tests' do
+    inherit! :search_paths
+
+    pod 'Kiwi'
+  pod 'FBSnapshotTestCase'
+  end
+end
