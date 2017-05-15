@@ -11,6 +11,7 @@
 #endif
 
 #import "HQAnimation.h"
+#import "HQAnimationEngine.h"
 #import "HQAnimationState.h"
 #import "HQAnimator.h"
 #import "HQBasicAnimation.h"

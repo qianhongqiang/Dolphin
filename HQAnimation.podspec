@@ -18,16 +18,16 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-
+  A simple animation engine for iOS pure ObjC
                        DESC
 
   s.homepage         = 'https://github.com/qianhongqiang/HQAnimation'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'qianhongqiang2012@163.com' => 'qianhongqiang2012@163.com' }
-  s.source           = { :git => 'https://github.com/qianhongqiang/HQAnimation', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/qianhongqiang/HQAnimation.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '6.0'
+  s.ios.deployment_target = '8.0'
 
   s.source_files = 'HQAnimation/Classes/**/*'
   

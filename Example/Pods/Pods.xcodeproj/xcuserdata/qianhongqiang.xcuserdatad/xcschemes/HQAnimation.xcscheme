@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E3288A298AF8BA63B294AFD2D95DF4B3'
+               BlueprintIdentifier = '3D43AE89FFFC943B57D6E039E7D98320'
                BlueprintName = 'HQAnimation'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'HQAnimation.framework'>

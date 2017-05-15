@@ -7,7 +7,7 @@
 //
 
 #import "HQAnimation.h"
-#import "HQAnimator.h"
+#import "HQAnimationEngine.h"
 
 @implementation HQAnimation
 
@@ -25,7 +25,7 @@
 
 - (void)qhq_addAnimation:(HQAnimation *)anim forKey:(NSString *)key
 {
-    [[HQAnimator sharedAnimator] addAnimation:anim forObject:self key:key];
+    [[HQAnimationEngine sharedAnimator] addAnimation:anim forObject:self key:key];
 }
 
 @end

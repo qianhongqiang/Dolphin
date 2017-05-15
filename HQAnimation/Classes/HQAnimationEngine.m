@@ -1,19 +1,19 @@
 //
-//  HQAnimator.m
-//  HQAnimations
+//  HQAnimationEngine.m
+//  Pods
 //
-//  Created by qianhongqiang on 2017/5/11.
-//  Copyright © 2017年 QianHongQiang. All rights reserved.
+//  Created by qianhongqiang on 2017/5/15.
+//
 //
 
-#import "HQAnimator.h"
+#import "HQAnimationEngine.h"
 #import "HQAnimationState.h"
 #import "HQBasicAnimation.h"
 #import <QuartzCore/QuartzCore.h>
 #import <libkern/OSAtomic.h>
 #import <UIKit/UIKit.h>
 
-@interface HQAnimatorItem : NSObject
+@interface HQAnimationEngineItem : NSObject
 
 @property (nonatomic, strong) HQAnimation *animation;
 
@@ -23,20 +23,20 @@
 
 @end
 
-@implementation HQAnimatorItem
+@implementation HQAnimationEngineItem
 
 @end
 
-@interface HQAnimator ()
+@interface HQAnimationEngine ()
 
 @property (nonatomic) CADisplayLink *display;
 @property (nonatomic, strong) NSMutableDictionary<id,NSMutableDictionary<NSString *,HQAnimation *> *> *animationsDict;
-@property (nonatomic, strong) NSMutableArray<HQAnimatorItem *> *itemArray;
+@property (nonatomic, strong) NSMutableArray<HQAnimationEngineItem *> *itemArray;
 @property (nonatomic) OSSpinLock lock;
 
 @end
 
-@implementation HQAnimator
+@implementation HQAnimationEngine
 
 static inline void spinLock(OSSpinLock *lock,dispatch_block_t block)
 {
@@ -47,10 +47,10 @@ static inline void spinLock(OSSpinLock *lock,dispatch_block_t block)
 
 + (id)sharedAnimator
 {
-    static HQAnimator* _animator = nil;
+    static HQAnimationEngine* _animator = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _animator = [[HQAnimator alloc] init];
+        _animator = [[HQAnimationEngine alloc] init];
     });
     return _animator;
 }
@@ -84,14 +84,14 @@ static inline void spinLock(OSSpinLock *lock,dispatch_block_t block)
     [self _renderWithTime:time items:_itemArray];
 }
 
-- (void)_renderWithTime:(CFTimeInterval)time items:(NSArray<HQAnimatorItem *> *)items
+- (void)_renderWithTime:(CFTimeInterval)time items:(NSArray<HQAnimationEngineItem *> *)items
 {
-    for (HQAnimatorItem *item in items) {
+    for (HQAnimationEngineItem *item in items) {
         [self _renderWithTime:time item:item];
     }
 }
 
-- (void)_renderWithTime:(CFTimeInterval)time item:(HQAnimatorItem *)item
+- (void)_renderWithTime:(CFTimeInterval)time item:(HQAnimationEngineItem *)item
 {
     HQAnimation *animation = item.animation;
     if ([animation.animationState isStart]) {
@@ -122,7 +122,7 @@ static inline void spinLock(OSSpinLock *lock,dispatch_block_t block)
         }
     }
     
-    HQAnimatorItem *item = [[HQAnimatorItem alloc] init];
+    HQAnimationEngineItem *item = [[HQAnimationEngineItem alloc] init];
     item.animation = anim;
     item.obj = obj;
     item.key = key;
@@ -151,7 +151,7 @@ static inline void spinLock(OSSpinLock *lock,dispatch_block_t block)
     [self lock:^{
         if (self.itemArray.count == 0) return;
         NSMutableArray *array = [NSMutableArray array];
-        for (HQAnimatorItem *item in self.itemArray) {
+        for (HQAnimationEngineItem *item in self.itemArray) {
             if (item.animation != anim) {
                 [array addObject:item];
             }
