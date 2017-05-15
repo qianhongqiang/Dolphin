@@ -1,0 +1,6 @@
+framework module Pods_Dolphin_Tests {
+  umbrella header "Pods-Dolphin_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

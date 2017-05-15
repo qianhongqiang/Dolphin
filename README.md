@@ -1,9 +1,9 @@
-# HQAnimation
+# Dolphin
 
-[![CI Status](http://img.shields.io/travis/qianhongqiang2012@163.com/HQAnimation.svg?style=flat)](https://travis-ci.org/qianhongqiang2012@163.com/HQAnimation)
-[![Version](https://img.shields.io/cocoapods/v/HQAnimation.svg?style=flat)](http://cocoapods.org/pods/HQAnimation)
-[![License](https://img.shields.io/cocoapods/l/HQAnimation.svg?style=flat)](http://cocoapods.org/pods/HQAnimation)
-[![Platform](https://img.shields.io/cocoapods/p/HQAnimation.svg?style=flat)](http://cocoapods.org/pods/HQAnimation)
+[![CI Status](http://img.shields.io/travis/qianhongqiang2012@163.com/Dolphin.svg?style=flat)](https://travis-ci.org/qianhongqiang2012@163.com/Dolphin)
+[![Version](https://img.shields.io/cocoapods/v/Dolphin.svg?style=flat)](http://cocoapods.org/pods/Dolphin)
+[![License](https://img.shields.io/cocoapods/l/Dolphin.svg?style=flat)](http://cocoapods.org/pods/Dolphin)
+[![Platform](https://img.shields.io/cocoapods/p/Dolphin.svg?style=flat)](http://cocoapods.org/pods/Dolphin)
 
 ## Example
 
@@ -13,11 +13,11 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-HQAnimation is available through [CocoaPods](http://cocoapods.org). To install
+Dolphin is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "HQAnimation"
+pod "Dolphin"
 ```
 
 ## Author
@@ -26,4 +26,4 @@ qianhongqiang2012@163.com
 
 ## License
 
-HQAnimation is available under the MIT license. See the LICENSE file for more info.
+Dolphin is available under the MIT license. See the LICENSE file for more info.

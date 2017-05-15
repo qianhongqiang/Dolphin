@@ -4,12 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>FBSnapshotTestCase.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>HQAnimation.xcscheme</key>
+		<key>Dolphin.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -19,12 +14,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-HQAnimation_Example.xcscheme</key>
+		<key>Pods-Dolphin_Example.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-HQAnimation_Tests.xcscheme</key>
+		<key>Pods-Dolphin_Tests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,27 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>34CD2E3428AB802BACA62286FF5074B1</key>
+		<key>2AE06AAF03DC5BCCB0C49FDD11B05BCD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3D43AE89FFFC943B57D6E039E7D98320</key>
+		<key>38D79A245334C161C5F62888D5DB051F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A830CA19FD08B628DEE5844A249995F6</key>
+		<key>3F7DFC1E720896797932014145ACBA62</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>CFC033EB15A8DCED2F72CBF393902F87</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F54FCC96C1CE67772241A0C033B5B358</key>
 		<dict>
 			<key>primary</key>
 			<true/>

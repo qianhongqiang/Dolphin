@@ -1,6 +1,0 @@
-framework module HQAnimation {
-  umbrella header "HQAnimation-umbrella.h"
-
-  export *
-  module * { export * }
-}

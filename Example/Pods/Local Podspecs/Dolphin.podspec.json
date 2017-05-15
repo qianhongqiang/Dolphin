@@ -1,0 +1,22 @@
+{
+  "name": "Dolphin",
+  "version": "0.1.0",
+  "summary": "A simple animation engine for iOS",
+  "description": "A simple animation engine for iOS pure ObjC",
+  "homepage": "https://github.com/qianhongqiang/Dolphin",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "qianhongqiang2012@163.com": "qianhongqiang2012@163.com"
+  },
+  "source": {
+    "git": "https://github.com/qianhongqiang/Dolphin.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source_files": "Dolphin/Classes/**/*"
+}

@@ -1,0 +1,6 @@
+framework module Dolphin {
+  umbrella header "Dolphin-umbrella.h"
+
+  export *
+  module * { export * }
+}

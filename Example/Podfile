@@ -1,12 +1,11 @@
 use_frameworks!
 
-target 'HQAnimation_Example' do
-  pod 'HQAnimation', :path => '../'
+target 'Dolphin_Example' do
+  pod 'Dolphin', :path => '../'
 
-  target 'HQAnimation_Tests' do
+  target 'Dolphin_Tests' do
     inherit! :search_paths
 
     pod 'Kiwi'
-  pod 'FBSnapshotTestCase'
   end
 end

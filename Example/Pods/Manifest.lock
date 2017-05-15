@@ -1,26 +1,19 @@
 PODS:
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
-  - HQAnimation (0.1.0)
+  - Dolphin (0.1.0)
   - Kiwi (2.4.0)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase
-  - HQAnimation (from `../`)
+  - Dolphin (from `../`)
   - Kiwi
 
 EXTERNAL SOURCES:
-  HQAnimation:
+  Dolphin:
     :path: ../
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  HQAnimation: f12a7ffe702ac269b32fffdfbb0ae14d151c5f3d
+  Dolphin: 25ed29a0f9df76483b0e289dc3a76485092a87fa
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
 
-PODFILE CHECKSUM: 293421516d81ca168c1a704fedff8dfaf630cf9b
+PODFILE CHECKSUM: 059d4cdb071bed5ff600c07d2cbf3b6320e5b73d
 
 COCOAPODS: 1.2.1
