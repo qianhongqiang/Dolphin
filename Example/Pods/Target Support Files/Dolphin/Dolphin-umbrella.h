@@ -10,11 +10,12 @@
 #endif
 #endif
 
-#import "HQAnimation.h"
-#import "HQAnimationEngine.h"
-#import "HQAnimationState.h"
-#import "HQBasicAnimation.h"
-#import "HQPropertyAnimation.h"
+#import "Dolphin.h"
+#import "DPHAnimation.h"
+#import "DPHAnimationEngine.h"
+#import "DPHAnimationState.h"
+#import "DPHBasicAnimation.h"
+#import "DPHPropertyAnimation.h"
 
 FOUNDATION_EXPORT double DolphinVersionNumber;
 FOUNDATION_EXPORT const unsigned char DolphinVersionString[];

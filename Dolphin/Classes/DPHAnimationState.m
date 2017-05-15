@@ -1,22 +1,22 @@
 //
-//  HQAnimationState.m
-//  HQAnimations
+//  DPHAnimationState.m
+//  Pods
 //
-//  Created by qianhongqiang on 2017/5/12.
-//  Copyright © 2017年 QianHongQiang. All rights reserved.
+//  Created by qianhongqiang on 2017/5/15.
+//
 //
 
-#import "HQAnimationState.h"
+#import "DPHAnimationState.h"
 #import <QuartzCore/QuartzCore.h>
 #import <UIKit/UIKit.h>
 
-@interface HQAnimationState ()
+@interface DPHAnimationState ()
 
 @property (nonatomic, assign) BOOL isStart;
 
 @end
 
-@implementation HQAnimationState
+@implementation DPHAnimationState
 
 - (instancetype)init
 {
@@ -24,8 +24,10 @@
     if (!self) return nil;
     
     _isStart = NO;
+    
+    
     _beginTime = 0;
-
+    
     return self;
 }
 
@@ -61,28 +63,28 @@
 {
     if (strcmp(valueEncode, @encode(float)) == 0 ||
         strcmp(valueEncode, @encode(double)) == 0) {
-        _valueType = HQAnimationValueTypeFloat;
+        _valueType = DPHAnimationValueTypeFloat;
         return;
     } else if (strcmp(valueEncode, @encode(CGPoint)) == 0) {
-        _valueType = HQAnimationValueTypePoint;
+        _valueType = DPHAnimationValueTypePoint;
         return;
     } else if (strcmp(valueEncode, @encode(CGSize)) == 0) {
-        _valueType = HQAnimationValueTypeSize;
+        _valueType = DPHAnimationValueTypeSize;
         return;
     } else if (strcmp(valueEncode, @encode(CGRect)) == 0) {
-        _valueType = HQAnimationValueTypeRect;
+        _valueType = DPHAnimationValueTypeRect;
         return;
     } else if (strcmp(valueEncode, @encode(UIEdgeInsets)) == 0) {
-        _valueType = HQAnimationValueTypeEdgeInsets;
+        _valueType = DPHAnimationValueTypeEdgeInsets;
         return;
     } else if (strcmp(valueEncode, @encode(CGAffineTransform)) == 0) {
-        _valueType = HQAnimationValueTypeAffineTransform;
+        _valueType = DPHAnimationValueTypeAffineTransform;
         return;
     } else if (strcmp(valueEncode, @encode(CATransform3D)) == 0) {
-        _valueType = HQAnimationValueTypeTransform;
+        _valueType = DPHAnimationValueTypeTransform;
         return;
     } else if (strcmp(valueEncode, @encode(CFRange)) == 0) {
-        _valueType = HQAnimationValueTypeRange;
+        _valueType = DPHAnimationValueTypeRange;
         return;
     } else if (strcmp(valueEncode, @encode(int)) == 0
                || strcmp(valueEncode, @encode(unsigned int)) == 0
@@ -92,10 +94,10 @@
                || strcmp(valueEncode, @encode(unsigned long)) == 0
                || strcmp(valueEncode, @encode(long long)) == 0
                || strcmp(valueEncode, @encode(unsigned long long)) == 0) {
-        _valueType = HQAnimationValueTypeInteger;
+        _valueType = DPHAnimationValueTypeInteger;
         return;
     } else {
-        _valueType = HQAnimationValueTypeUnkown;
+        _valueType = DPHAnimationValueTypeUnkown;
         return;
     }
     
@@ -115,7 +117,7 @@
     };
     
     switch (self.valueType) {
-        case HQAnimationValueTypeRect:
+        case DPHAnimationValueTypeRect:
         {
             CGRect fromRect = [self.fromValue CGRectValue];
             CGRect toRect = [self.toValue CGRectValue];

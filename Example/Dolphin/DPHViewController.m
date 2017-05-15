@@ -7,7 +7,7 @@
 //
 
 #import "DPHViewController.h"
-#import <Dolphin/HQBasicAnimation.h>
+#import <Dolphin/Dolphin.h>
 
 @interface DPHViewController ()
 
@@ -34,26 +34,26 @@
     if (sender.selected == YES) {
         sender.selected = NO;
         
-        HQBasicAnimation *test = [[HQBasicAnimation alloc] init];
+        DPHBasicAnimation *test = [[DPHBasicAnimation alloc] init];
         
         test.fromValue =  [NSValue valueWithCGRect:sender.frame];
         test.toValue = [NSValue valueWithCGRect:CGRectMake(100, 100, 100, 100)];
         test.duration = 1;
         
-        [sender qhq_addAnimation:test forKey:@"dd"];
+        [sender dph_addAnimation:test forKey:@"dd"];
         
         return;
     }
     
     sender.selected = YES;
     
-    HQBasicAnimation *test = [[HQBasicAnimation alloc] init];
+    DPHBasicAnimation *test = [[DPHBasicAnimation alloc] init];
     
     test.fromValue =  [NSValue valueWithCGRect:sender.frame];
     test.toValue = [NSValue valueWithCGRect:CGRectMake(300, 300, 60, 60)];
     test.duration = 1;
     
-    [sender qhq_addAnimation:test forKey:@"dd"];
+    [sender dph_addAnimation:test forKey:@"dd"];
 }
 
 @end

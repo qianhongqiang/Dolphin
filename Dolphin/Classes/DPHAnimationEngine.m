@@ -1,21 +1,21 @@
 //
-//  HQAnimationEngine.m
+//  DPHAnimationEngine.m
 //  Pods
 //
 //  Created by qianhongqiang on 2017/5/15.
 //
 //
 
-#import "HQAnimationEngine.h"
-#import "HQAnimationState.h"
-#import "HQBasicAnimation.h"
+#import "DPHAnimationEngine.h"
+#import "DPHAnimationState.h"
+#import "DPHAnimation.h"
 #import <QuartzCore/QuartzCore.h>
 #import <libkern/OSAtomic.h>
 #import <UIKit/UIKit.h>
 
 @interface HQAnimationEngineItem : NSObject
 
-@property (nonatomic, strong) HQAnimation *animation;
+@property (nonatomic, strong) DPHAnimation *animation;
 
 @property (nonatomic, weak) id obj;
 
@@ -27,16 +27,17 @@
 
 @end
 
-@interface HQAnimationEngine ()
+
+@interface DPHAnimationEngine ()
 
 @property (nonatomic) CADisplayLink *display;
-@property (nonatomic, strong) NSMutableDictionary<id,NSMutableDictionary<NSString *,HQAnimation *> *> *animationsDict;
+@property (nonatomic, strong) NSMutableDictionary<id,NSMutableDictionary<NSString *,DPHAnimation *> *> *animationsDict;
 @property (nonatomic, strong) NSMutableArray<HQAnimationEngineItem *> *itemArray;
 @property (nonatomic) OSSpinLock lock;
 
 @end
 
-@implementation HQAnimationEngine
+@implementation DPHAnimationEngine
 
 static inline void spinLock(OSSpinLock *lock,dispatch_block_t block)
 {
@@ -47,10 +48,10 @@ static inline void spinLock(OSSpinLock *lock,dispatch_block_t block)
 
 + (id)sharedAnimator
 {
-    static HQAnimationEngine* _animator = nil;
+    static DPHAnimationEngine* _animator = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _animator = [[HQAnimationEngine alloc] init];
+        _animator = [[DPHAnimationEngine alloc] init];
     });
     return _animator;
 }
@@ -93,10 +94,10 @@ static inline void spinLock(OSSpinLock *lock,dispatch_block_t block)
 
 - (void)_renderWithTime:(CFTimeInterval)time item:(HQAnimationEngineItem *)item
 {
-    HQAnimation *animation = item.animation;
+    DPHAnimation *animation = item.animation;
     if ([animation.animationState isStart]) {
         [animation.animationState applyAnimationTime:item.obj time:time];
-        if (animation.animationState.valueType == HQAnimationValueTypeRect) {
+        if (animation.animationState.valueType == DPHAnimationValueTypeRect) {
             
             NSValue *current = animation.animationState.currentValue;
             
@@ -108,14 +109,14 @@ static inline void spinLock(OSSpinLock *lock,dispatch_block_t block)
     
 }
 
-- (void)addAnimation:(HQAnimation *)anim forObject:(id)obj key:(NSString *)key
+- (void)addAnimation:(DPHAnimation *)anim forObject:(id)obj key:(NSString *)key
 {
-    NSMutableDictionary<NSString *,HQAnimation *> *dict = [self.animationsDict objectForKey:[NSString stringWithFormat:@"%lu",(unsigned long)[obj hash]]];
+    NSMutableDictionary<NSString *,DPHAnimation *> *dict = [self.animationsDict objectForKey:[NSString stringWithFormat:@"%lu",(unsigned long)[obj hash]]];
     if (!dict) {
         dict = [NSMutableDictionary dictionary];
         [self.animationsDict setObject:dict forKey:[NSString stringWithFormat:@"%lu",(unsigned long)[obj hash]]];
     } else {
-        HQAnimation *existedAnim = [dict objectForKey:key];
+        DPHAnimation *existedAnim = [dict objectForKey:key];
         if (existedAnim) {
             if (existedAnim == anim) return;
             [self removeAnimationForObject:obj key:key cleanupDict:NO];
@@ -134,7 +135,7 @@ static inline void spinLock(OSSpinLock *lock,dispatch_block_t block)
 {
     NSMutableDictionary *dict = [self.animationsDict objectForKey:[NSString stringWithFormat:@"%lu",(unsigned long)[obj hash]]];
     if (dict) {
-        HQAnimation *animation = [dict objectForKey:key];
+        DPHAnimation *animation = [dict objectForKey:key];
         if (animation) {
             [dict removeObjectForKey:key];
             if (dict.count == 0 && cleanupDict) {
@@ -146,7 +147,7 @@ static inline void spinLock(OSSpinLock *lock,dispatch_block_t block)
     }
 }
 
-- (void)removeAinmatortItemWithAnimation:(HQAnimation *)anim
+- (void)removeAinmatortItemWithAnimation:(DPHAnimation *)anim
 {
     [self lock:^{
         if (self.itemArray.count == 0) return;
