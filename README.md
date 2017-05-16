@@ -20,6 +20,14 @@ it, simply add the following line to your Podfile:
 pod "Dolphin"
 ```
 
+## Usage
+
+* create An animtion instance
+
+```objc
+  DPHBasicAnimation *test = [[DPHBasicAnimation alloc] init];
+```
+
 ## Author
 
 qianhongqiang2012@163.com
