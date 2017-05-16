@@ -25,7 +25,6 @@
     
     _isStart = NO;
     
-    
     _beginTime = 0;
     
     return self;
@@ -123,7 +122,6 @@
         }
         return (54/5.0 * normal * normal) - (513/25.0 * normal) + 268/25.0;
         
-//        return normal * normal * normal;
     };
     
     switch (self.valueType) {

@@ -21,4 +21,6 @@
 
 - (void)dph_addAnimation:(DPHAnimation *)anim forKey:(NSString *)key;
 
+- (void)dph_removeAnimationForKey:(NSString *)key;
+
 @end

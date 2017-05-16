@@ -12,8 +12,10 @@
 
 @interface DPHAnimationEngine : NSObject
 
-+ (id)sharedAnimator;
++ (instancetype)sharedAnimator;
 
 - (void)addAnimation:(DPHAnimation *)anim forObject:(id)obj key:(NSString *)key;
+
+- (void)removeAnimationForObject:(id)obj key:(NSString *)key;
 
 @end

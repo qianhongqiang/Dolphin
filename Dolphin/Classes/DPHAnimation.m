@@ -28,4 +28,9 @@
     [[DPHAnimationEngine sharedAnimator] addAnimation:anim forObject:self key:key];
 }
 
+- (void)dph_removeAnimationForKey:(NSString *)key
+{
+    [[DPHAnimationEngine sharedAnimator] removeAnimationForObject:self key:key];
+}
+
 @end

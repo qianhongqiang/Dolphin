@@ -25,6 +25,18 @@
 
 @implementation HQAnimationEngineItem
 
+- (instancetype)initWithAnimation:(DPHAnimation *)anim Object:(id)obj AndKey:(NSString *)key
+{
+    self = [super init];
+    if (!self) return nil;
+    
+    _animation = anim;
+    _obj = obj;
+    _key = key;
+    
+    return self;
+}
+
 @end
 
 
@@ -46,7 +58,7 @@ static inline void spinLock(OSSpinLock *lock,dispatch_block_t block)
     OSSpinLockUnlock(lock);
 }
 
-+ (id)sharedAnimator
++ (instancetype)sharedAnimator
 {
     static DPHAnimationEngine* _animator = nil;
     static dispatch_once_t onceToken;
@@ -144,16 +156,17 @@ static inline void spinLock(OSSpinLock *lock,dispatch_block_t block)
         }
     }
     
-    HQAnimationEngineItem *item = [[HQAnimationEngineItem alloc] init];
-    item.animation = anim;
-    item.obj = obj;
-    item.key = key;
-    
+    HQAnimationEngineItem *item = [[HQAnimationEngineItem alloc] initWithAnimation:anim Object:obj AndKey:key];
     [_itemArray addObject:item];
     
     if (self.display.paused == YES) {
         self.display.paused = NO;
     }
+}
+
+- (void)removeAnimationForObject:(id)obj key:(NSString *)key
+{
+    [self removeAnimationForObject:obj key:key cleanupDict:YES];
 }
 
 - (void)removeAnimationForObject:(id)obj key:(NSString *)key cleanupDict:(BOOL)cleanupDict
